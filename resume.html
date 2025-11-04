@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Resume</title>
+    <style>
+        :root {
+            --primary-blue: #1e88e5;
+            --silver: #9e9e9e;
+            --dark-silver: #616161;
+            --light-blue: #bbdefb;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: white;
+            color: #333;
+        }
+
+        .header {
+            background: linear-gradient(to right, var(--primary-blue), var(--light-blue));
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-bottom: 0;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navigation {
+            background-color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .navigation a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            margin-right: 2rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .navigation a:hover {
+            color: var(--dark-silver);
+            transform: translateY(-2px);
+        }
+
+        .navigation a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary-blue);
+            transition: width 0.3s ease;
+        }
+
+        .navigation a:hover::after {
+            width: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--light-blue);
+            padding-bottom: 0.5rem;
+        }
+
+        .resume-item {
+            margin-bottom: 2rem;
+        }
+
+        .resume-item h3 {
+            color: var(--dark-silver);
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .resume-item .date {
+            color: var(--primary-blue);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .resume-item p {
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .resume-item ul {
+            list-style-type: none;
+            padding-left: 1.5rem;
+        }
+
+        .resume-item li {
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .resume-item li:before {
+            content: "•";
+            color: var(--primary-blue);
+            position: absolute;
+            left: -1.5rem;
+        }
+
+        .download-section {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary-blue);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background: #1565c0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .skill-item {
+            background: linear-gradient(to right, var(--light-blue), #e3f2fd);
+            padding: 0.8rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 500;
+            color: var(--primary-blue);
+            text-align: center;
+        }
+
+        .company {
+            color: var(--primary-blue);
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 1.5rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <h1>My Resume</h1>
+    </header>
+
+    <nav class="navigation">
+        <a href="index.html">Home</a>
+        <a href="hobbies.html">Hobbies</a>
+        <a href="why-umd.html">Why UMD</a>
+        <a href="resume.html">Resume</a>
+        <a href="career-interests.html">Career Interests</a>
+        <a href="interactive-game.html">Interactive Game</a>
+    </nav>
+
+    <div class="container">
+        <!-- Download Button -->
+        <div class="download-section">
+            <a href="documents/Ben_Milan_Resume.pdf" download class="download-btn">
+                <i class="fas fa-download"></i> Download PDF Version
+            </a>
+        </div>
+
+        <!-- Education Section -->
+        <section class="section">
+            <h2>Education and Training</h2>
+            <div class="resume-item">
+                <h3>University of Minnesota Duluth - Duluth, MN</h3>
+                <div class="date">2024 - 2028 (Expected)</div>
+                <p>Management Information Systems</p>
+            </div>
+
+            <div class="resume-item">
+                <h3>Tartan High School - Oakdale, MN</h3>
+                <div class="date">2020 - 2024</div>
+                <p>High School Diploma</p>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="section">
+            <h2>Experience</h2>
+            <div class="resume-item">
+                <h3>CONSTRUCTION ASSOCIATE</h3>
+                <div class="company">Home Depot - Woodbury, MN</div>
+                <div class="date">04/2024 - 08/2025</div>
+                <ul>
+                    <li>Assisted customers in selecting building materials and home improvement products.</li>
+                    <li>Stocked shelves regularly to ensure availability of products for customers.</li>
+                    <li>Operated panel and radial arm saws to cut lumber to customer specifications, ensuring precision and adherence to safety standards.</li>
+                </ul>
+            </div>
+
+            <div class="resume-item">
+                <h3>CASHIER/FOOD SERVICE WORKER</h3>
+                <div class="company">UMD Dining Services - Duluth, Minnesota</div>
+                <div class="date">08/2024 - 05/2025</div>
+                <ul>
+                    <li>Processed customer transactions efficiently and accurately at campus dining locations.</li>
+                    <li>Prepared and assembled food orders quickly and accurately during high-volume periods.</li>
+                    <li>Followed food safety and sanitation guidelines to maintain a clean and safe work environment.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">Lumber cutting</div>
+                <div class="skill-item">Customer transactions</div>
+                <div class="skill-item">Customer service</div>
+                <div class="skill-item">Team collaboration</div>
+                <div class="skill-item">Time management</div>
+                <div class="skill-item">Fast-paced environment</div>
+                <div class="skill-item">Attention to detail</div>
+                <div class="skill-item">Quality assurance</div>
+                <div class="skill-item">Problem solving</div>
+                <div class="skill-item">Effective communication</div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section class="section">
+            <h2>Summary & Achievements</h2>
+            <div class="resume-item">
+                <p>Motivated college sophomore pursuing a Bachelor's degree in Management Information Systems at the University of Minnesota, Duluth. Experienced in customer service, retail, and food service, with skills in operating power equipment, assisting customers, and working in fast-paced environments that require accuracy, safety, and communication. Brings a balance of technical knowledge, problem-solving ability, and people skills, with a strong interest in using technology to support business solutions. Dedicated to maintaining a positive work ethic, building meaningful connections, and growing into a career in IT and business systems.</p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

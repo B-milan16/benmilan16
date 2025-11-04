@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Hobbies & Interests</title>
+    <style>
+        :root {
+            --primary-blue: #1e88e5;
+            --silver: #9e9e9e;
+            --dark-silver: #616161;
+            --light-blue: #bbdefb;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: white;
+            color: #333;
+        }
+
+        .header {
+            background: linear-gradient(to right, var(--primary-blue), var(--light-blue));
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navigation {
+            background-color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navigation a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            margin-right: 2rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .navigation a:hover {
+            color: var(--dark-silver);
+            transform: translateY(-2px);
+        }
+
+        .navigation a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary-blue);
+            transition: width 0.3s ease;
+        }
+
+        .navigation a:hover::after {
+            width: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .hobby-section {
+            margin-bottom: 4rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+
+        .hobby-section h2 {
+            color: var(--primary-blue);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--light-blue);
+            padding-bottom: 0.5rem;
+        }
+
+        .hobby-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .hobby-text {
+            font-size: 1.1rem;
+            color: #444;
+        }
+
+        .hobby-text p {
+            margin-bottom: 1rem;
+        }
+
+        .hobby-gallery {
+            display: grid;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .hockey-gallery {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            background-color: #f5f5f5;
+        }
+
+        .single-image-gallery {
+            grid-template-columns: 1fr;
+        }
+
+        .single-image-gallery .gallery-image {
+            height: 450px;
+            object-fit: contain;
+        }
+
+        .gallery-image:hover {
+            transform: scale(1.02);
+        }
+
+        .importance-box {
+            background: linear-gradient(to bottom right, white, #f5f5f5);
+            border-left: 4px solid var(--primary-blue);
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-radius: 8px;
+        }
+
+        .importance-box h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .game-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            font-size: 4rem;
+            color: var(--primary-blue);
+            margin-top: 2rem;
+        }
+
+        .game-icons i {
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .game-icons i:hover {
+            transform: scale(1.1);
+            color: var(--light-blue);
+        }
+
+        @media (max-width: 768px) {
+            .hobby-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .hobby-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>My Hobbies & Interests</h1>
+    </header>
+
+    <nav class="navigation">
+        <a href="index.html">Home</a>
+        <a href="hobbies.html">Hobbies</a>
+        <a href="why-umd.html">Why UMD</a>
+        <a href="resume.html">Resume</a>
+        <a href="career-interests.html">Career Interests</a>
+        <a href="interactive-game.html">Interactive Game</a>
+    </nav>
+
+    <div class="container">
+        <!-- Hockey Section -->
+        <section class="hobby-section">
+            <h2>Hockey</h2>
+            <div class="hobby-content">
+                <div class="hobby-text">
+                    <p>Hockey is a fast-paced team sport played on ice, where players use sticks to move a puck and score goals. It takes speed, skill, and strong teamwork to succeed.</p>
+                    
+                    <p>I started playing hockey when I was six years old, and ever since then, it's been one of the most important parts of my life. I've gone to many out-of-town tournaments and made lasting memories with my teammates. Those weekends were filled with games, team dinners, and moments that brought us closer together.</p>
+                    
+                    <div class="importance-box">
+                        <h3>Why Hockey Matters to Me</h3>
+                        <p>Hockey matters to me because it keeps me active and teaches me valuable lessons about hard work, discipline, and teamwork. It's helped me build confidence and make great friends who share the same love for the game.</p>
+                    </div>
+                </div>
+                <div class="hobby-gallery hockey-gallery">
+                    <img src="images/IMG_6780.jpg" alt="Hockey Action Shot" class="gallery-image">
+                    <img src="images/IMG_6694.jpg" alt="Hockey Celebration" class="gallery-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Golf Section -->
+        <section class="hobby-section">
+            <h2>Golf</h2>
+            <div class="hobby-content">
+                <div class="hobby-text">
+                    <p>Golf is a sport where players hit a small ball into a series of holes using as few strokes as possible. It's played outdoors on peaceful, open courses and requires focus, patience, and precision.</p>
+                    
+                    <p>My grandpa was the one who first taught me how to play golf. He showed me how to line up a shot and always reminded me to stay calm and steady. Now, I play almost every weekend in the summer with my buddies. We have fun competing, laughing, and spending time outside.</p>
+                    
+                    <div class="importance-box">
+                        <h3>Why Golf Matters to Me</h3>
+                        <p>Golf is important to me because it connects me to my grandpa and reminds me of the lessons he taught me. It's also a relaxing escape from everyday stress and gives me time to clear my head while enjoying nature.</p>
+                    </div>
+                </div>
+                <div class="hobby-gallery single-image-gallery">
+                    <img src="images/IMG_6734.JPG" alt="Golf" class="gallery-image">
+                    <!-- Add more golf images here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Gaming Section -->
+        <section class="hobby-section">
+            <h2>Gaming</h2>
+            <div class="hobby-content">
+                <div class="hobby-text">
+                    <p>Gaming is an interactive activity where players use technology to explore virtual worlds, solve challenges, and compete against others. It can be both creative and social, depending on the type of game.</p>
+                    
+                    <p>My favorite games are Rocket League, Fortnite, and Minecraft. I love the competition and teamwork in Rocket League, the fast-paced excitement of Fortnite, and the creativity and freedom of Minecraft. I often play with my friends online, and it's always a fun way to connect and hang out, even when we're not together in person.</p>
+                    
+                    <div class="importance-box">
+                        <h3>Why Gaming Matters to Me</h3>
+                        <p>Gaming matters to me because it helps me relax and unwind after a busy day. It's also a great way to stay close with my friends and challenge myself through teamwork and strategy.</p>
+                    </div>
+                </div>
+                <div class="hobby-gallery">
+                    <!-- If you have a gaming setup or screenshot you'd like to add, we can add it here -->
+                    <div class="game-icons">
+                        <i class="fas fa-gamepad"></i>
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Add Font Awesome for gaming icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</body>
+</html>

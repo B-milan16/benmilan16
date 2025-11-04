@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Interests</title>
+    <style>
+        :root {
+            --primary-blue: #1e88e5;
+            --silver: #9e9e9e;
+            --dark-silver: #616161;
+            --light-blue: #bbdefb;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: white;
+            color: #333;
+        }
+
+        .header {
+            background: linear-gradient(to right, var(--primary-blue), var(--light-blue));
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-bottom: 0;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navigation {
+            background-color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .navigation a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            margin-right: 2rem;
+            font-weight: 500;
+        }
+
+        .navigation a:hover {
+            color: var(--dark-silver);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--light-blue);
+            padding-bottom: 0.5rem;
+        }
+
+        .career-card {
+            background: linear-gradient(to bottom right, white, #f5f5f5);
+            border-left: 4px solid var(--primary-blue);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            animation: slideUp 0.8s ease-out;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .career-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .career-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .career-card p {
+            color: #555;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .skill-tag {
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Career Interests</h1>
+    </header>
+
+    <nav class="navigation">
+        <a href="index.html">Home</a>
+        <a href="hobbies.html">Hobbies</a>
+        <a href="why-umd.html">Why UMD</a>
+        <a href="resume.html">Resume</a>
+        <a href="career-interests.html">Career Interests</a>
+        <a href="interactive-game.html">Interactive Game</a>
+    </nav>
+
+    <div class="container">
+        <section class="section">
+            <h2>Companies I'm Interested In Working For</h2>
+            <div class="career-card">
+                <h3>3M Corporation</h3>
+                <p>
+                    3M Corporate Headquarters<br>
+                    3M Center, St. Paul, MN 55144-1000<br>
+                    Phone: (888) 364-3577<br>
+                    Website: <a href="https://www.3m.com" target="_blank">www.3m.com</a>
+                </p>
+                <p>
+                    I'm interested in 3M because it's one of the most innovative companies in the world. They combine business, science, and technology to solve everyday problems, which connects directly to what I'm learning as an MIS major. I like how 3M encourages creativity and teamwork, and I think it would be an amazing place to start a career in technology or business systems.
+                </p>
+                <p>
+                    As a sophomore studying Management Information Systems at UMD, I've built skills in Excel, data management, and systems analysis. I've learned how technology supports better business decisions, and I enjoy finding ways to make processes more efficient. I'm also good at working with others and communicating clearly, which are important at a large, fast-moving company like 3M.
+                </p>
+                <p>
+                    My skills line up well with what 3M looks for—people who can connect technology with business strategy. I'm also drawn to their focus on sustainability and innovation, which are values I share and want to carry into my future career.
+                </p>
+            </div>
+
+            <div class="career-card">
+                <h3>ALLETE, Inc.</h3>
+                <p>
+                    ALLETE, Inc. Headquarters<br>
+                    30 W. Superior Street, Duluth, MN 55802<br>
+                    Phone: (218) 279-5000<br>
+                    Website: <a href="https://www.allete.com" target="_blank">www.allete.com</a>
+                </p>
+                <p>
+                    I'm interested in ALLETE because it's based right here in Duluth and focuses on clean energy and sustainability. I like that the company uses technology to manage energy systems and support a more sustainable future. Working for ALLETE would be a great way to apply my MIS background to something that really matters to the community and the environment.
+                </p>
+                <p>
+                    As a sophomore MIS major at UMD, I've developed strong skills in data organization, systems analysis, and problem-solving. I enjoy looking at how information systems can make business operations run more efficiently. I also value teamwork and communication, which I know are important in a company that works on large projects involving both business and technology.
+                </p>
+                <p>
+                    My skills and interests fit well with ALLETE's goals of improving efficiency and supporting clean energy innovation. I like that they focus on long-term sustainability, and I'd be proud to contribute to that mission.
+                </p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
