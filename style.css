@@ -1,0 +1,536 @@
+/* Root variables */
+:root {
+    --primary-blue: #1e88e5;
+    --silver: #9e9e9e;
+    --dark-silver: #616161;
+    --light-blue: #bbdefb;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: white;
+    color: #333;
+}
+
+/* Header Styles */
+.header {
+    background: linear-gradient(to right, var(--primary-blue), var(--light-blue));
+    color: white;
+    text-align: center;
+    padding: 4rem 2rem;
+    margin-bottom: 0;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation Styles */
+.navigation {
+    background-color: white;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.navigation a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    margin-right: 2rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.navigation a:hover {
+    color: var(--dark-silver);
+    transform: translateY(-2px);
+}
+
+.navigation a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--primary-blue);
+    transition: width 0.3s ease;
+}
+
+.navigation a:hover::after {
+    width: 100%;
+}
+
+/* Container and Section Styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    animation: slideUp 0.8s ease-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.section h2 {
+    color: var(--primary-blue);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    border-bottom: 2px solid var(--light-blue);
+    padding-bottom: 0.5rem;
+}
+
+.section p {
+    margin-bottom: 1.5rem;
+    color: #444;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* About Content Styles */
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.about-image {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Hobbies Styles */
+.hobbies {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.hobby-card {
+    background: linear-gradient(to bottom right, white, #f5f5f5);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-blue);
+}
+
+.hobby-card h3 {
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.hobby-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Resume Specific Styles */
+.resume-item {
+    margin-bottom: 2rem;
+}
+
+.resume-item h3 {
+    color: var(--dark-silver);
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.resume-item .date {
+    color: var(--primary-blue);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.resume-item ul {
+    list-style-type: none;
+    padding-left: 1.5rem;
+}
+
+.resume-item li {
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.resume-item li:before {
+    content: "•";
+    color: var(--primary-blue);
+    position: absolute;
+    left: -1.5rem;
+}
+
+/* Hobby Section Styles */
+.hobby-section {
+    margin-bottom: 4rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    animation: slideUp 0.8s ease-out;
+}
+
+.hobby-section h2 {
+    color: var(--primary-blue);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--light-blue);
+    padding-bottom: 0.5rem;
+}
+
+.hobby-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.hobby-text {
+    font-size: 1.1rem;
+    color: #444;
+}
+
+.hobby-text p {
+    margin-bottom: 1rem;
+}
+
+.hobby-gallery {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.hockey-gallery {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.gallery-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    background-color: #f5f5f5;
+}
+
+.single-image-gallery {
+    grid-template-columns: 1fr;
+}
+
+.single-image-gallery .gallery-image {
+    height: 450px;
+    object-fit: contain;
+}
+
+.gallery-image:hover {
+    transform: scale(1.02);
+}
+
+.importance-box {
+    background: linear-gradient(to bottom right, white, #f5f5f5);
+    border-left: 4px solid var(--primary-blue);
+    padding: 1.5rem;
+    margin-top: 2rem;
+    border-radius: 8px;
+}
+
+.importance-box h3 {
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+}
+
+/* Game Icons */
+.game-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    font-size: 4rem;
+    color: var(--primary-blue);
+    margin-top: 2rem;
+}
+
+.game-icons i {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.game-icons i:hover {
+    transform: scale(1.1);
+    color: var(--light-blue);
+}
+
+/* Game Specific Styles */
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+#gameCanvas {
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    background-color: #70c5ce;
+}
+
+.instructions {
+    text-align: center;
+    color: #555;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+/* Video Container Styles */
+.video-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Resume Specific Styles */
+.download-btn {
+    display: block;
+    width: fit-content;
+    margin: 0 auto 2rem auto;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--primary-blue);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+    background: #1565c0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.company {
+    color: var(--primary-blue);
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+}
+
+.resume-item {
+    margin-bottom: 2rem;
+}
+
+.resume-item h3 {
+    color: var(--dark-silver);
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.resume-item .date {
+    color: var(--primary-blue);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.resume-item ul {
+    list-style-type: none;
+    padding-left: 1.5rem;
+}
+
+.resume-item li {
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.resume-item li:before {
+    content: "•";
+    color: var(--primary-blue);
+    position: absolute;
+    left: -1.5rem;
+}
+
+/* Career Interests Specific Styles */
+.career-card {
+    background: linear-gradient(to bottom right, white, #f5f5f5);
+    border-left: 4px solid var(--primary-blue);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    animation: slideUp 0.8s ease-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.career-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.career-card h3 {
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.career-card p {
+    color: #555;
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+/* Why UMD Specific Styles */
+.highlight-box {
+    background: linear-gradient(to bottom right, white, #f5f5f5);
+    border-left: 4px solid var(--primary-blue);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+}
+
+.highlight-box h3 {
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.image-container {
+    width: 100%;
+    height: 300px;
+    margin: 2rem 0;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.feature-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Video Container Styles */
+.video-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    padding-top: 35%;
+}
+
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Skills Grid Styles */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.skill-item {
+    background: linear-gradient(to right, var(--light-blue), #e3f2fd);
+    padding: 0.8rem 1.2rem;
+    border-radius: 6px;
+    font-weight: 500;
+    color: var(--primary-blue);
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .section {
+        padding: 1.5rem;
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .hobbies {
+        grid-template-columns: 1fr;
+    }
+    
+    #gameCanvas {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
