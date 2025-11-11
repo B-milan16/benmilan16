@@ -36,6 +36,33 @@ let audioContext = null;
 let musicOscillator = null;
 let musicGainNode = null;
 
+// Background music via HTMLAudioElement (optional)
+const bgMusic = document.getElementById('bgMusic');
+const musicToggleBtn = document.getElementById('musicToggle');
+let musicEnabled = false;
+
+// Attempt muted autoplay on load to satisfy browser policies. If autoplay is
+// blocked, the audio will remain muted/paused until a user gesture.
+if (bgMusic) {
+    try {
+        bgMusic.volume = 0.35;
+        bgMusic.muted = true; // muted so browsers allow autoplay
+        bgMusic.loop = true;
+        const playPromise = bgMusic.play();
+        if (playPromise !== undefined) {
+            playPromise.then(() => {
+                musicEnabled = true;
+                if (musicToggleBtn) musicToggleBtn.textContent = 'Mute Music';
+            }).catch(() => {
+                musicEnabled = false;
+                if (musicToggleBtn) musicToggleBtn.textContent = 'Play Music';
+            });
+        }
+    } catch (e) {
+        // ignore
+    }
+}
+
 // Initialize audio context
 function initAudio() {
     if (!audioContext) {
@@ -69,17 +96,32 @@ function createSoundEffect(frequency, duration, type = 'sine', volume = 0.1) {
 
 // Empty background music function - music disabled
 function startBackgroundMusic() {
-    // No background music
-    return;
+    if (!bgMusic) return;
+    // Unmute and play (this should be called during a user gesture)
+    bgMusic.muted = false;
+    bgMusic.volume = 0.35;
+    bgMusic.loop = true;
+    bgMusic.play().then(() => {
+        musicEnabled = true;
+        if (musicToggleBtn) musicToggleBtn.textContent = 'Mute Music';
+    }).catch(() => {
+        // Play rejected; keep it muted/paused until another gesture
+        musicEnabled = false;
+        if (musicToggleBtn) musicToggleBtn.textContent = 'Play Music';
+    });
 }
 
 function stopBackgroundMusic() {
-    // No background music to stop
-    return;
+    if (!bgMusic) return;
+    bgMusic.pause();
+    try { bgMusic.currentTime = 0; } catch (e) {}
+    musicEnabled = false;
+    if (musicToggleBtn) musicToggleBtn.textContent = 'Play Music';
 }
 
 function createBackgroundBeat() {
-    // No background beat
+    // The existing WebAudio beat implementation was removed in favor of a simple
+    // HTML audio background track. Keep this function as a no-op for now.
     return;
 }
 
@@ -254,6 +296,29 @@ function initGame() {
             handleInput();
         }
     });
+
+    // Music toggle button (if present)
+    if (musicToggleBtn) {
+        musicToggleBtn.addEventListener('click', (e) => {
+            if (!bgMusic) return;
+            // If muted or paused, unmute and play. Otherwise pause and mute.
+            if (bgMusic.muted || bgMusic.paused) {
+                bgMusic.muted = false;
+                bgMusic.volume = 0.35;
+                bgMusic.play().then(() => {
+                    musicEnabled = true;
+                    musicToggleBtn.textContent = 'Mute Music';
+                }).catch(() => {
+                    // play prevented
+                });
+            } else {
+                bgMusic.pause();
+                bgMusic.muted = true;
+                musicEnabled = false;
+                musicToggleBtn.textContent = 'Play Music';
+            }
+        });
+    }
 
     // Start game loop
     gameLoop();
